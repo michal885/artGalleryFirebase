@@ -1,0 +1,27 @@
+@import "../../variables";
+
+.navbar{
+  width: 100vw !important;
+  z-index: 100;
+  background-color: $light !important;
+  .navbar-toggler-icon{
+    color: $dark !important;
+  }
+  .nav-link{
+    color: $dark !important;
+    border-bottom: 1px solid $light;
+    transition: 1s;
+    &:hover{
+      border-bottom: 1px solid $dark !important;
+    }
+  }
+}
+
+a{
+  @media (max-width: 768px){
+    &:hover{
+      letter-spacing: 0.2rem;
+    };
+  }
+}
+

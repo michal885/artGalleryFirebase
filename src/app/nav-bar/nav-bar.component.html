@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center m-0 p-0 w-100">
+  <nav class="navbar navbar-expand-md navbar-light bg-light w-100">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse mt-2" id="navbarNav">
+        <ul class="navbar-nav d-flex justify-content-center w-100">
+          <li class="nav-item">
+            <a class="nav-link text-center mx-3" aria-current="page" routerLink="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-center mx-3" [routerLink]='["/paintings/allPaintings"]' [queryParams]="{category: 'abstraction'}">Abstractions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-center mx-3" [routerLink]='["/paintings/allPaintings"]' [queryParams]="{category: 'landscape'}">Landscapes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-center mx-3" [routerLink]='["/paintings/allPaintings"]' [queryParams]="{category: 'portrait'}">Portraits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-center mx-3" [routerLink]='["/paintings/allPaintings"]' [queryParams]="{category: 'all'}">All Paintings</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
