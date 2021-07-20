@@ -1,0 +1,52 @@
+<div class="row m-0 p-0">
+  <div class="col-12 m-0 p-0">
+    <div class="row banner m-0 p-0">
+      <div class="col-12 col-md-4 leftBanner m-0 p-0 d-flex flex-column justify-content-center align-items-center">
+        <div class="text-capitalize higherElement text-center">
+          online art
+        </div>
+        <div class="text-center lowerElement">
+          view and rate images
+        </div>
+      </div>
+      <div class="col-12 col-md-8 rightBannerCont m-0 p-0">
+        <div class="rightBanner">
+          <div class="buttonViewAll d-flex align-items-center justify-content-center" (click)="redirectAllPaintings('all')"><span class="text-center">View All Paintings</span></div>
+        </div>
+      </div>
+
+      <div class="col-12 my-3 categoryPanel">
+        <div class="row justify-content-center ">
+          <div class="col-12 text-center display-5 mb-3">
+            choose a style
+          </div>
+          <div class="col-md-5 col-12 leftCatCont p-0">
+            <div class="leftCat d-flex justify-content-center align-items-end" (click)="redirectAllPaintings('portrait')">
+              <div class="paintingCat text-center">
+                portraits
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 col-12 p-0">
+            <div class="row m-0 p-0">
+              <div class="col-12 rightUpperCont p-0">
+                <div class="rightUpper p-0 d-flex justify-content-center align-items-end" (click)="redirectAllPaintings('landscape')">
+                  <div class="paintingCat text-center">
+                    landscapes
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 rightLowerCont p-0">
+                <div class="rightLower p-0 d-flex justify-content-center align-items-end" (click)="redirectAllPaintings('abstraction')">
+                  <div class="paintingCat text-center">
+                    abstractions
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

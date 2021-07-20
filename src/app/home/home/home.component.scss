@@ -1,0 +1,187 @@
+@import '../../../variables';
+
+@mixin defBanner(){
+  @media (max-width: 768px){
+    .paintingCat{
+      color: $light;
+      font-size: 2rem;
+      background-color: rgba(0,0,0,0.20);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 1s;
+    }
+    &:hover .paintingCat{
+      background-color: rgba(0,0,0,0.40);
+    }
+  };
+  @media (min-width: 769px){
+    .paintingCat{
+      position: absolute;
+      color: $light;
+      font-size: 2rem;
+      width: 100%;
+      background-color: rgba(0,0,0,0.60);
+      padding: 2rem;
+      left: -40%;
+      top: -40%;
+      transition: 1s;
+    }
+    &:hover .paintingCat{
+      left: 0;
+      top: 0;
+    }
+  };
+}
+
+.banner{
+  min-height: 70vh;
+
+  .leftBanner{
+    background-color: $lightBrown;
+    @media (max-width: 768px){
+      height: 30vh;
+    };
+    .higherElement{
+      color: $dark;
+      font-size: 3rem;
+    }
+    .lowerElement{
+      color: $light;
+      font-size: 1rem;
+    }
+  }
+  .rightBannerCont{
+    overflow: hidden;
+    .rightBanner{
+      background-image: url('https://firebasestorage.googleapis.com/v0/b/artgallery-9bfaf.appspot.com/o/jachty4_30x60.jpg_1623737837216?alt=media&token=ef3de26a-7d32-4a95-9c40-d14840d6c91e');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: scroll;
+      position: relative;
+      transition: 1s;
+      @media (max-width: 768px){
+        height: 80vh;
+        &:hover{
+          transform: scale(1.1)
+        }
+      };
+      @media (min-width: 769px){
+        height: 70vh;
+      };
+      z-index: 1;
+      .buttonViewAll{
+        @media (max-width: 768px){
+          color: $light;
+          font-size: 2rem;
+          background: rgba(0,0,0,0.20);
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+          transition: 0.5s;
+          &:hover{
+            background: rgba(0,0,0,0.40);
+          }
+        };
+        @media (min-width: 769px){
+          @include defBtn(3rem, $dark, $light);
+          position: absolute;
+          background: rgba(0,0,0,0.20);
+          left: 2%;
+          width: 14rem;
+          top: 50%;
+        };
+      }
+    }
+  }
+
+}
+.categoryPanel{
+  .leftCatCont{
+    cursor: pointer;
+    @media (max-width: 768px){
+      height: 30vh;
+      margin-bottom: 1rem;
+    };
+    @media (min-width: 769px){
+      height: calc(70vh + 2vh);
+      margin-right: 1vh;
+    };
+    overflow: hidden;
+    .leftCat{
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      background-image: url('https://firebasestorage.googleapis.com/v0/b/artgallery-9bfaf.appspot.com/o/portret4_60x50.jpg_1623739325668?alt=media&token=0cfce343-e04c-4135-856c-3d7c5b0e74f5');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      transition: 1s;
+      &:hover{
+        transform: scale(1.1);
+      }
+      @include defBanner();
+
+  }
+
+  }
+  .rightUpperCont{
+    cursor: pointer;
+    @media (max-width: 768px){
+      height: 30vh;
+      margin-bottom: 1rem;
+    };
+    @media (min-width: 769px){
+      height: 35vh;
+      margin-left: 2vh;
+      margin-bottom: 2vh;
+    };
+    overflow: hidden;
+    .rightUpper{
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      background-image: url('https://firebasestorage.googleapis.com/v0/b/artgallery-9bfaf.appspot.com/o/jachty1_40x50.jpg_1623737556061?alt=media&token=1f488c6b-8532-46a5-a208-7da6e0ae4093');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: 1s;
+      &:hover{
+        transform: scale(1.1);
+      };
+      @include defBanner();
+    }
+  }
+  .rightLowerCont{
+    cursor: pointer;
+    @media (max-width: 768px){
+      height: 30vh;
+      margin-bottom: 1rem;
+    };
+    @media (min-width: 769px){
+      height: 35vh;
+      margin-left: 2vh;
+
+    };
+    overflow: hidden;
+    .rightLower{
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/artgallery-9bfaf.appspot.com/o/abstr6_65x50.jpg_1623737171953?alt=media&token=ba1ee9b3-ec27-4ab4-bce2-29f223a24685');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: 1s;
+        &:hover{
+          transform: scale(1.1);
+        };
+        @include defBanner();
+    }
+  }
+
+}
+
