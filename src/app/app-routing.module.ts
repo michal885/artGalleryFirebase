@@ -9,10 +9,19 @@ const routes: Routes = [
 
   },
   {
+    path: 'page-not-found',
+    loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
   },
+  {
+    path:'**',
+    redirectTo:'/page-not-found',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
