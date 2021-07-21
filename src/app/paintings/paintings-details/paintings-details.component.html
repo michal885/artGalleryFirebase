@@ -1,0 +1,11 @@
+<ng-container>
+  <div class="backdropContainer" [routerLink]="['/paintings/allPaintings']"
+  [queryParams]="{category: params.category, supportOrSurface: params.supportOrSurface, mainColor: params.mainColor, title: params.title, author: params.author, technique: params.technique}">
+    <div class="imgContainer" *ngIf="(painting$ | async) as painting">
+      <img class="img" [src]="painting.imgUrl" [alt]="painting.title">
+      <button class="btnClose">Close</button>
+    </div>
+  </div>
+</ng-container>
+
+
