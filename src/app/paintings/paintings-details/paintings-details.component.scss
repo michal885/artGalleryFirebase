@@ -1,0 +1,56 @@
+@import '../../../variables';
+
+.backdropContainer{
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, .75);
+  z-index: 50;
+  .imgContainer{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.6s ease-in-out;
+    @media(min-width: 577px){
+      &:hover .btnClose{
+        top: 0;
+        right:0;
+      }
+    }
+    .btnClose{
+      position: absolute;
+      @media(min-width: 576px){
+        top: -15%;
+        right: -15%;
+      }
+      @media(max-width: 577px){
+        display: none;
+      }
+      color: $light;
+      padding: 0.75rem;
+      border: none;
+      background: rgba(0,0,0,0.75);
+      transition: 0.7s;
+      &:hover{
+        color: $light;
+        transform: scale(1.15);
+        background: rgba(0,0,0,0.75);
+      }
+    }
+    .img{
+      max-width: 90vw;
+      max-height: 90vh;
+
+    }
+  }
+}
+

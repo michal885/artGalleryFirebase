@@ -1,0 +1,143 @@
+<div class="row mainContainer">
+  <div class="filter col-sm-3 col-10 mx-auto p-3" [class]="filterSmallScreen">
+    <div class="row" >
+      <div class="col-12 fs-3 text-center">Filter:</div>
+      <form class="col-12" [formGroup]="filterForm" (ngSubmit)="filter()">
+        <div class="w-75 mx-auto">
+          <div class="mb-3">
+            <div class="filterName">
+              Category:
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="abstraction" id="abstraction" formControlName="category">
+              <label class="form-check-label" for="abstraction">
+                Abstraction
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="landscape" id="landscape" formControlName="category">
+              <label class="form-check-label" for="landscape">
+                Landscape
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="portrait" id="portrait" formControlName="category">
+              <label class="form-check-label" for="portrait">
+                Portrait
+              </label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="filterName">
+              Author:
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="AW" id="AW" formControlName="author">
+              <label class="form-check-label" for="AW">
+                AW
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="santa" id="santa" formControlName="author">
+              <label class="form-check-label" for="santa">
+                Santa
+              </label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="filterName">
+              Support or surface:
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="wood" id="wood" formControlName="supportOrSurface">
+              <label class="form-check-label" for="wood">
+                Wood
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="canvas" id="canvas" formControlName="supportOrSurface">
+              <label class="form-check-label" for="canvas">
+                Canvas
+              </label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="filterName">
+              Technique:
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="acrylic" id="acrylic" formControlName="technique">
+              <label class="form-check-label" for="acrylic">
+                Acrylic
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="oil" id="oil" formControlName="technique">
+              <label class="form-check-label" for="oil">
+                Oil
+              </label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="filterName">
+              Main color:
+            </div>
+            <div class="form-check" *ngFor="let color of mainColors">
+              <input class="form-check-input" type="radio" [value]="color" [id]="color+1" formControlName="mainColor">
+              <label class="form-check-label" [for]="color+1">
+                <div class="colorStyle" [id]="color">
+
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 btn-group buttonsFilterContainer" role="group" aria-label="Basic example">
+          <button type="submit" class="btn filterBtn" (click)="filterChange()">filter</button>
+          <button type="button" class="btn resetBtn" (click)="resetFilter()">reset</button>
+          <button type="button" class="btn hideBtn"(click)="filterChange()">hide</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <ng-container *ngIf="(paintings$ | async) as paintings">
+    <div class="col-12 col-sm-8 colContainer mx-auto mb-5">
+      <div class="row">
+        <div class="col-12 colContainer" *ngIf="paintings.length > 0; else noSearchResults">
+          <div class="card" style="width: 18rem;" *ngFor="let painting of paintings">
+            <div class="cardImgContainer" [routerLink]="['/paintings/allPaintings',painting.id]"
+            [queryParams]="{category: params.category,author: params.author, supportOrSurface: params.supportOrSurface, technique: params.technique, mainColor: params.mainColor, title: params.title}">
+              <img [src]="painting.imgUrl" class="cardImg card-img-top" [alt]="painting.title">
+              <div class="details">full screen</div>
+            </div>
+            <div class="card-body">
+              <p class="card-text text-capitalize">Author: {{painting.author}}, title: {{painting.title}}</p>
+              <p class="card-text text-uppercase">{{painting.supportOrSurface}}, {{painting.technique}}, {{painting.dimensions}}, {{painting.year}}</p>
+            </div>
+          </div>
+        </div>
+        <ng-template #noSearchResults>
+          <div class="col-12 noSearchResults m-2">
+            <div class="fs-3">sorry, no results found...</div>
+            <button class="buttonViewAll mx-auto text-center" (click)="resetFilter()">reset filter</button>
+          </div>
+        </ng-template>
+        <div class="col-12">
+          <div class="buttonShowMore mx-auto text-center" [style.display]="displaShowMoreButton" (click)="showMore()">show more</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <div class="buttonBottomContainer row">
+    <div class="searchContainer col-sm-8 col-12">
+      <form [formGroup]="searchForm" (ngSubmit)="searchTitle()">
+        <div class="input-group">
+          <button class="btn searchButton" type="submit" id="button-addon1">search</button>
+          <input type="text" class="form-control" placeholder="Search by title..." aria-label="Recipient's username" aria-describedby="button-addon2" formControlName="searchTitle">
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-4 buttonBottomFilter" (click)="filterChange()">filter</div>
+  </div>
+</div>
+

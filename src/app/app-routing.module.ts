@@ -1,12 +1,23 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
+import { PageNotFoundModule } from './page-not-found/page-not-found.module';
+import { AllPaintingsComponent } from './paintings/all-paintings/all-paintings.component';
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { PaintingResolverService } from './services/resolver.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found/page-not-found.component';
+import { PaintingsComponent } from './paintings/paintings.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-
+    resolve:{
+      paintings: PaintingResolverService
+    }
+  },
+  {
+    path: 'paintings',
+    component: PaintingsComponent
   },
   {
     path: 'page-not-found',
@@ -25,7 +36,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
