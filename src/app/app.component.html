@@ -1,10 +1,10 @@
 <app-spinner *ngIf="loading$ | async"></app-spinner>
-<div class="container-fluide">
+<div class="container-fluide m-0 p-0">
   <div class="row m-0 p-0">
     <div class="col-12 navBar m-0 p-0">
       <app-nav-bar></app-nav-bar>
     </div>
-    <div class="col-12 m-0 p-0">
+    <div class="col-12 m-0 p-0 routerContainer">
       <router-outlet></router-outlet>
     </div>
   </div>
